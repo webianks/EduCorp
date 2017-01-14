@@ -4,12 +4,17 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.webianks.educorp.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private String type;
+    private LinearLayout tutorLayout;
+    private LinearLayout parentLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +34,25 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void setupAccordToType() {
 
-        if (type.equals("Tutor")){
+        Toast.makeText(this, type, Toast.LENGTH_SHORT).show();
 
-        }else if(type.equals("Parent")){
+        if (type.equals("Tutor")) {
 
+            parentLayout.setVisibility(View.GONE);
+
+        } else if (type.equals("Parent")) {
+
+            tutorLayout.setVisibility(View.GONE);
         }
 
     }
 
     private void init() {
+
         type = getIntent().getStringExtra("type");
+        parentLayout = (LinearLayout) findViewById(R.id.parentLayout);
+        tutorLayout = (LinearLayout) findViewById(R.id.tutorLayout);
+
     }
 
 

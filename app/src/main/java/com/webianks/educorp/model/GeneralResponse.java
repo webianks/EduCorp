@@ -1,4 +1,4 @@
-package com.webianks.educorp;
+package com.webianks.educorp.model;
 
 /**
  * Created by R Ankit on 14-01-2017.

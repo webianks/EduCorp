@@ -10,18 +10,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.webianks.educorp.Constants;
-import com.webianks.educorp.EduCorpApi;
+import com.webianks.educorp.api.Constants;
+import com.webianks.educorp.api.EduCorpApi;
 import com.webianks.educorp.R;
-import com.webianks.educorp.data.Login;
+import com.webianks.educorp.api.RestClient;
+import com.webianks.educorp.model.Login;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, Callback<Login> {
 
@@ -70,16 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         setupDialog();
 
-        Gson gson = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-                .create();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(EduCorpApi.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        EduCorpApi eduCorpApi = retrofit.create(EduCorpApi.class);
+        EduCorpApi eduCorpApi = new RestClient().getApiService();
         Call<Login> loginUser = eduCorpApi.loginUser("0", email, password);
 
         //asynchronous call

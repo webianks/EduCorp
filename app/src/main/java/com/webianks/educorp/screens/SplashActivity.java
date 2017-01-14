@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.webianks.educorp.Constants;
+import com.webianks.educorp.api.Constants;
 import com.webianks.educorp.R;
 
 public class SplashActivity extends AppCompatActivity {

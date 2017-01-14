@@ -9,17 +9,14 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.webianks.educorp.EduCorpApi;
-import com.webianks.educorp.GeneralResponse;
+import com.webianks.educorp.api.EduCorpApi;
+import com.webianks.educorp.model.GeneralResponse;
 import com.webianks.educorp.R;
+import com.webianks.educorp.api.RestClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener, Callback<GeneralResponse> {
 
@@ -81,16 +78,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         setupDialog();
 
-        Gson gson = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-                .create();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(EduCorpApi.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        EduCorpApi eduCorpApi = retrofit.create(EduCorpApi.class);
+        EduCorpApi eduCorpApi = new RestClient().getApiService();
         Call<GeneralResponse> generalResponseCall = eduCorpApi.registerUser(name,email,password,type);
 
         //asynchronous call

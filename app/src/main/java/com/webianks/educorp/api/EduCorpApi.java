@@ -1,7 +1,8 @@
-package com.webianks.educorp;
+package com.webianks.educorp.api;
 
-import com.webianks.educorp.data.Login;
-import com.webianks.educorp.data.Profile;
+import com.webianks.educorp.model.GeneralResponse;
+import com.webianks.educorp.model.Login;
+import com.webianks.educorp.model.Profile;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

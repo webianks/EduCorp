@@ -26,49 +26,12 @@
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
+
+            <EditText
+                android:id="@+id/subjectsET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/maths"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/maths"
-                    android:textSize="17sp" />
-
-                <EditText
-                    android:id="@+id/mathsET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/ic_action_editor_mode_edit" />
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/science"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/science"
-                    android:textSize="17sp" />
-
-                <EditText
-                    android:id="@+id/scienceET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/ic_action_editor_mode_edit" />
-
-
-            </LinearLayout>
+                android:drawableRight="@drawable/ic_action_editor_mode_edit" />
 
 
         </LinearLayout>

@@ -28,6 +28,14 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText addressET;
     private EditText zipCodeET;
 
+    private EditText nameET;
+    private EditText schoolET;
+    private EditText gradeET;
+
+    private EditText subjectsET;
+    private EditText bioET;
+    private EditText studentTutET;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +78,31 @@ public class ProfileActivity extends AppCompatActivity {
         addressET.setText(coreProfileBean.getAddress());
         zipCodeET.setText(coreProfileBean.getZipcode());
 
+        nameET.setText(coreProfileBean.getStudent_name());
+        schoolET.setText(coreProfileBean.getStudent_school());
+        gradeET.setText(coreProfileBean.getStudent_grade());
+        bioET.setText(coreProfileBean.getBio());
+
+        StringBuilder subjects = new StringBuilder();
+
+        if (coreProfileBean.getSubjects().size()>0){
+
+            for(String subject:coreProfileBean.getSubjects())
+                subjects.append(subject);
+        }
+
+        StringBuilder tutoring = new StringBuilder();
+
+        if (coreProfileBean.getStudents().size()>0){
+
+            for(String student:coreProfileBean.getStudents())
+                tutoring.append(student);
+        }
+
+
+        subjectsET.setText(subjects);
+        studentTutET.setText(tutoring);
+
     }
 
     private void setBasicProfile() {
@@ -90,8 +123,17 @@ public class ProfileActivity extends AppCompatActivity {
         nameTV = (TextView) findViewById(R.id.name);
         emailAddressTV = (TextView) findViewById(R.id.email);
         typeTV = (TextView) findViewById(R.id.type);
+
         addressET = (EditText) findViewById(R.id.addressET);
         zipCodeET = (EditText) findViewById(R.id.zipCodeET);
+
+        nameET = (EditText) findViewById(R.id.nameET);
+        schoolET = (EditText) findViewById(R.id.schoolET);
+        gradeET = (EditText) findViewById(R.id.gradeET);
+
+        subjectsET = (EditText) findViewById(R.id.subjectsET);
+        bioET = (EditText) findViewById(R.id.bioEt);
+        studentTutET = (EditText) findViewById(R.id.tutoringET);
 
         SharedPreferences sp = getSharedPreferences(Constants.PROFILE_SP, Context.MODE_PRIVATE);
         String profile_json = sp.getString(Constants.PROFILE_DATA, null);

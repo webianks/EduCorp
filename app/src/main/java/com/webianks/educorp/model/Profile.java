@@ -82,11 +82,11 @@ public class Profile {
         private String profile_pic_url;
         private String zipcode;
         private String bio;
-        private String students;
+        private  List<String> students;
         private String student_name;
         private String student_school;
         private String student_grade;
-        private String subjects;
+        private List<String> subjects;
 
         public void setAddress(String address) {
             this.address = address;
@@ -112,11 +112,11 @@ public class Profile {
             this.student_school = student_school;
         }
 
-        public void setStudents(String students) {
+        public void setStudents( List<String> students) {
             this.students = students;
         }
 
-        public void setSubjects(String subjects) {
+        public void setSubjects(List<String> subjects) {
             this.subjects = subjects;
         }
 
@@ -148,11 +148,11 @@ public class Profile {
             return student_school;
         }
 
-        public String getStudents() {
+        public List<String> getStudents() {
             return students;
         }
 
-        public String getSubjects() {
+        public List<String> getSubjects() {
             return subjects;
         }
 

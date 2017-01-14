@@ -134,6 +134,7 @@ public class Dashboard extends AppCompatActivity implements Callback<Profile>, V
 
             Intent intent = new Intent(this, ProfileActivity.class);
             intent.putExtra("type", typeTV.getText());
+            intent.putExtra("api_key", api_key);
             startActivity(intent);
         }
 

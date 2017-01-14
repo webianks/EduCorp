@@ -38,6 +38,14 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/submit"
+            android:onClick="submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="@string/update" />
+
     </LinearLayout>
 
 </ScrollView>

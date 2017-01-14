@@ -30,4 +30,12 @@ public interface EduCorpApi {
     @GET("/api/educorp/profile?query=list")
     Call<Profile> getProfile(@Query("api_key") String api_key);
 
+
+    @GET("/api/educorp/profile?query=edit")
+    Call<GeneralResponse> updateProfile(@Query("address") String address,
+                                        @Query("zipcode") String zipcode,
+                                        @Query("api_key") String api_key);
+
+
+
 }

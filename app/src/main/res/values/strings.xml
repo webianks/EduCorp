@@ -29,4 +29,6 @@
     <string name="science">Science</string>
     <string name="bio">Bio</string>
     <string name="student_tutoring">Student Tutoring</string>
+    <string name="update">Update</string>
+    <string name="failed">Failed to update</string>
 </resources>

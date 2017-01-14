@@ -1,5 +1,6 @@
 package com.webianks.educorp.screens;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
@@ -10,13 +11,22 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.webianks.educorp.R;
 import com.webianks.educorp.api.Constants;
+import com.webianks.educorp.api.EduCorpApi;
+import com.webianks.educorp.api.RestClient;
+import com.webianks.educorp.model.GeneralResponse;
+import com.webianks.educorp.model.Login;
 import com.webianks.educorp.model.Profile;
 
-public class ProfileActivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class ProfileActivity extends AppCompatActivity implements Callback<GeneralResponse> {
 
     private String type;
     private LinearLayout tutorLayout;
@@ -35,6 +45,8 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText subjectsET;
     private EditText bioET;
     private EditText studentTutET;
+    private String api_key;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 setBasicProfile();
 
-                if (profileBean.getProfile().size() > 0)
+                if (profileBean.getProfile() != null && profileBean.getProfile().size() > 0)
                     setCoreProfile(profileBean.getProfile().get(0));
             }
 
@@ -116,6 +128,8 @@ public class ProfileActivity extends AppCompatActivity {
     private void init() {
 
         type = getIntent().getStringExtra("type");
+        api_key = getIntent().getStringExtra("type");
+
         parentLayout = (LinearLayout) findViewById(R.id.parentLayout);
         tutorLayout = (LinearLayout) findViewById(R.id.tutorLayout);
 
@@ -135,6 +149,7 @@ public class ProfileActivity extends AppCompatActivity {
         bioET = (EditText) findViewById(R.id.bioEt);
         studentTutET = (EditText) findViewById(R.id.tutoringET);
 
+
         SharedPreferences sp = getSharedPreferences(Constants.PROFILE_SP, Context.MODE_PRIVATE);
         String profile_json = sp.getString(Constants.PROFILE_DATA, null);
 
@@ -151,5 +166,56 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void submit(View view) {
+
+
+
+        String address = addressET.getText().toString();
+        String zipcode = zipCodeET.getText().toString();
+
+        if (address.trim().length()>0 && zipcode.trim().length()>0){
+
+            setupDialog();
+
+            EduCorpApi eduCorpApi = new RestClient().getApiService();
+            Call<GeneralResponse> generalResponse = eduCorpApi.updateProfile(address, zipcode, api_key);
+
+            //asynchronous call
+            generalResponse.enqueue(this);
+
+        }
+
+    }
+
+    private void setupDialog() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle(getString(R.string.login));
+        progressDialog.setMessage(getString(R.string.please_wait));
+        progressDialog.setIndeterminate(true);
+        progressDialog.show();
+    }
+
+
+    @Override
+    public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+
+        if (progressDialog != null)
+            progressDialog.dismiss();
+
+        if (response.isSuccessful()) {
+
+            Toast.makeText(this,response.message(),Toast.LENGTH_SHORT).show();
+
+        }else{
+            Toast.makeText(this,getString(R.string.failed),Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onFailure(Call<GeneralResponse> call, Throwable t) {
+        Toast.makeText(this,getString(R.string.failed),Toast.LENGTH_SHORT).show();
     }
 }

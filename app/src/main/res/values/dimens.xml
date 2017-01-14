@@ -5,5 +5,5 @@
     <dimen name="progressbar_bottom_margin">50dp</dimen>
     <dimen name="login_container_margin">16dp</dimen>
     <dimen name="type_margin">2dp</dimen>
-    <dimen name="name_margin">20dp</dimen>
+    <dimen name="name_margin">16dp</dimen>
 </resources>

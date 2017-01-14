@@ -24,4 +24,7 @@
     <string name="student">Student</string>
     <string name="school">School</string>
     <string name="grade">Grade</string>
+    <string name="subjectsOpted">Subject(s) Opted</string>
+    <string name="maths">Maths</string>
+    <string name="science">Science</string>
 </resources>

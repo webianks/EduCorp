@@ -22,7 +22,7 @@
 
         <include layout="@layout/student_info" />
 
-        <include layout="@layout/student_info" />
+        <include layout="@layout/subject_opted_info" />
 
 
     </LinearLayout>

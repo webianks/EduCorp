@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">EduCorp</string>
-    <string name="login">Please Login</string>
+    <string name="login">Login</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="not_a_member">Not a member?</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

@@ -3,4 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="progressbar_bottom_margin">50dp</dimen>
+    <dimen name="login_container_margin">16dp</dimen>
 </resources>

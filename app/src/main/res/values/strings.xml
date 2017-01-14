@@ -17,4 +17,6 @@
     <string name="please_wait">Please wait..</string>
     <string name="error_register">Can\'t register at this time.</string>
     <string name="register">Register</string>
+    <string name="profile">Profile</string>
+    <string name="events">Events</string>
 </resources>

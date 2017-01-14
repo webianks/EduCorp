@@ -101,7 +101,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (response.isSuccessful()) {
 
             Login login = response.body();
-            //Toast.makeText(this, login.getApi_key(), Toast.LENGTH_SHORT).show();
+
+            SharedPreferences sp = getSharedPreferences(Constants.LOGIN_SP, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString(Constants.API_KEY, login.getApi_key());
+            editor.apply();
+
             gotoDashboard();
 
         } else {
@@ -122,7 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         SharedPreferences sp = getSharedPreferences(Constants.LOGIN_SP, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean(Constants.LOGGED_IN,true);
+        editor.putBoolean(Constants.LOGGED_IN, true);
         editor.apply();
 
         startActivity(new Intent(this, Dashboard.class));

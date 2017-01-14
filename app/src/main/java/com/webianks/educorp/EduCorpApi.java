@@ -1,6 +1,7 @@
 package com.webianks.educorp;
 
 import com.webianks.educorp.data.Login;
+import com.webianks.educorp.data.Profile;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -22,5 +23,10 @@ public interface EduCorpApi {
                                        @Query("email") String email,
                                        @Query("password") String password,
                                        @Query("type") String type);
+
+
+
+    @GET("/api/educorp/profile?query=list")
+    Call<Profile> getProfile(@Query("api_key") String api_key);
 
 }

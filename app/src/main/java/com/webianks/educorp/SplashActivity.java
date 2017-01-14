@@ -21,8 +21,9 @@ public class SplashActivity extends AppCompatActivity {
 
                 SharedPreferences sp = getSharedPreferences(Constants.LOGIN_SP, Context.MODE_PRIVATE);
                 boolean logged = sp.getBoolean(Constants.LOGGED_IN, false);
+                String api_key = sp.getString(Constants.API_KEY, null);
 
-                if (logged)
+                if (logged && api_key != null)
                     showDashboard();
                 else
                     showLoginRegister();

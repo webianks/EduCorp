@@ -1,5 +1,6 @@
 package com.webianks.educorp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private EditText emailET;
     private EditText passwordET;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
 
-        if (view.getId() == R.id.loginBT)
+        if (view.getId() == R.id.signUpBT)
 
             startActivity(new Intent(this, RegisterActivity.class));
 
@@ -60,6 +62,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void loginNow(String email, String password) {
 
+
+        setupDialog();
+
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                 .create();
@@ -76,11 +81,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginUser.enqueue(this);
     }
 
+    private void setupDialog() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle(getString(R.string.login));
+        progressDialog.setMessage(getString(R.string.please_wait));
+        progressDialog.setIndeterminate(true);
+        progressDialog.show();
+    }
+
 
     @Override
     public void onResponse(Call<Login> call, Response<Login> response) {
+
+        if (progressDialog != null)
+            progressDialog.dismiss();
+
         if (response.isSuccessful()) {
-            Toast.makeText(this, response.toString(), Toast.LENGTH_SHORT).show();
+
+            Login login = response.body();
+            Toast.makeText(this, login.getApi_key(), Toast.LENGTH_SHORT).show();
+
         } else {
 
             switch (response.code()) {
@@ -97,6 +117,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onFailure(Call<Login> call, Throwable t) {
+
+        if (progressDialog != null)
+            progressDialog.dismiss();
+
         Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT).show();
     }
 }

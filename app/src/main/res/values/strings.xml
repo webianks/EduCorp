@@ -12,6 +12,9 @@
     <string name="parent">Parent</string>
     <string name="tutor">Tutor</string>
     <string name="not_found">User not found.</string>
-    <string name="error">Can\'t login</string>
+    <string name="error">Can\'t login at this time.</string>
     <string name="please_provide">Please fill all details.</string>
+    <string name="please_wait">Please wait..</string>
+    <string name="error_register">Can\'t register at this time.</string>
+    <string name="register">Register</string>
 </resources>

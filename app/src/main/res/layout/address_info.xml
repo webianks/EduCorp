@@ -47,7 +47,6 @@
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/ic_action_editor_mode_edit" />
 
-
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

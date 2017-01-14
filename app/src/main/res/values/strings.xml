@@ -21,4 +21,7 @@
     <string name="events">Events</string>
     <string name="address">Address</string>
     <string name="zipCode">Zipcode</string>
+    <string name="student">Student</string>
+    <string name="school">School</string>
+    <string name="grade">Grade</string>
 </resources>

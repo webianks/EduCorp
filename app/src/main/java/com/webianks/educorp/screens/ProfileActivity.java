@@ -1,11 +1,15 @@
-package com.webianks.educorp;
+package com.webianks.educorp.screens;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.webianks.educorp.R;
+
 public class ProfileActivity extends AppCompatActivity {
+
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +21,24 @@ public class ProfileActivity extends AppCompatActivity {
         if (actionBar != null)
             actionBar.setDisplayHomeAsUpEnabled(true);
 
+
+        init();
+        setupAccordToType();
+
+    }
+
+    private void setupAccordToType() {
+
+        if (type.equals("Tutor")){
+
+        }else if(type.equals("Parent")){
+
+        }
+
+    }
+
+    private void init() {
+        type = getIntent().getStringExtra("type");
     }
 
 

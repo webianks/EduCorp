@@ -19,4 +19,6 @@
     <string name="register">Register</string>
     <string name="profile">Profile</string>
     <string name="events">Events</string>
+    <string name="address">Address</string>
+    <string name="zipCode">Zipcode</string>
 </resources>

@@ -27,7 +27,7 @@
         <activity
             android:name=".screens.RegisterActivity"
             android:label="@string/create_account" />
-        <activity android:name=".ProfileActivity"
+        <activity android:name=".screens.ProfileActivity"
             android:label="@string/profile"></activity>
     </application>
 

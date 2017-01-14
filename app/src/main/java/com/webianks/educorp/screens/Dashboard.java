@@ -6,14 +6,12 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.webianks.educorp.Constants;
 import com.webianks.educorp.EduCorpApi;
-import com.webianks.educorp.ProfileActivity;
 import com.webianks.educorp.R;
 import com.webianks.educorp.data.Profile;
 
@@ -119,8 +117,9 @@ public class Dashboard extends AppCompatActivity implements Callback<Profile>, V
     public void onClick(View view) {
 
         if (view.getId() == R.id.profile_container) {
-
-            startActivity(new Intent(this, ProfileActivity.class));
+            Intent intent = new Intent(this, ProfileActivity.class);
+            intent.putExtra("type",typeTV.getText());
+            startActivity(intent);
 
         }
 

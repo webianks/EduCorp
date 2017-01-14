@@ -192,7 +192,7 @@ public class ProfileActivity extends AppCompatActivity implements Callback<Gener
 
     private void setupDialog() {
         progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle(getString(R.string.login));
+        progressDialog.setTitle(getString(R.string.update));
         progressDialog.setMessage(getString(R.string.please_wait));
         progressDialog.setIndeterminate(true);
         progressDialog.show();

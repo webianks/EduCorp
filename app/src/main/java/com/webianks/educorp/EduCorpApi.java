@@ -12,12 +12,12 @@ import retrofit2.http.Query;
 
 public interface EduCorpApi {
 
-    String BASE_URL = "http://hackerearth.0x10.info/api/educorp/";
+    String BASE_URL = "http://hackerearth.0x10.info";
 
-    @GET("/auth?query=login")
+    @GET("/api/educorp/auth?query=login")
     Call<Login> loginUser(@Query("type") String type, @Query("email") String email, @Query("password") String password);
 
-    @GET("/auth?query=register")
+    @GET("/api/educorp/auth?query=register")
     Call<GeneralResponse> registerUser(@Query("name") String name,
                                        @Query("email") String email,
                                        @Query("password") String password,

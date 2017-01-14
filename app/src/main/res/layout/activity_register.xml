@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.webianks.educorp.RegisterActivity">
 
-    <include layout="@layout/login_container" />
+    <include layout="@layout/register_container" />
 
 </RelativeLayout>

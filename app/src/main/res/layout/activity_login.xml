@@ -8,7 +8,7 @@
     app:elevation="2dp"
     tools:context="com.webianks.educorp.LoginActivity">
 
-    <include layout="@layout/login_container" />
 
+    <include layout="@layout/login_container" />
 
 </RelativeLayout>

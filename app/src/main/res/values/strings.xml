@@ -8,4 +8,10 @@
     <string name="name">Name</string>
     <string name="create_account">Create Account</string>
     <string name="already_a_member">Already a member?</string>
+    <string name="type">Type</string>
+    <string name="parent">Parent</string>
+    <string name="tutor">Tutor</string>
+    <string name="not_found">User not found.</string>
+    <string name="error">Can\'t login</string>
+    <string name="please_provide">Please fill all details.</string>
 </resources>

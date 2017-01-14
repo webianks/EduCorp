@@ -20,6 +20,38 @@
 
     </android.support.design.widget.TextInputLayout>
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/type"
+        android:textSize="18sp"
+        android:layout_marginLeft="@dimen/type_margin"
+        android:layout_marginTop="@dimen/login_container_margin"
+        />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_container_margin"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/parent"
+            />
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutor"
+            />
+
+    </RadioGroup>
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -67,6 +99,7 @@
             android:text="@string/already_a_member" />
 
         <Button
+            android:id="@+id/loginBT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00ffffff"

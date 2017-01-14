@@ -1,4 +1,4 @@
-package com.webianks.educorp;
+package com.webianks.educorp.screens;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -6,13 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.webianks.educorp.data.Login;
+import com.webianks.educorp.EduCorpApi;
+import com.webianks.educorp.GeneralResponse;
+import com.webianks.educorp.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;

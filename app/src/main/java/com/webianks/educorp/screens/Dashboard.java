@@ -1,17 +1,21 @@
-package com.webianks.educorp;
+package com.webianks.educorp.screens;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.webianks.educorp.data.Login;
+import com.webianks.educorp.Constants;
+import com.webianks.educorp.EduCorpApi;
+import com.webianks.educorp.ProfileActivity;
+import com.webianks.educorp.R;
 import com.webianks.educorp.data.Profile;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -21,7 +25,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Dashboard extends AppCompatActivity implements Callback<Profile> {
+public class Dashboard extends AppCompatActivity implements Callback<Profile>, View.OnClickListener {
 
 
     private String api_key;
@@ -36,6 +40,7 @@ public class Dashboard extends AppCompatActivity implements Callback<Profile> {
 
         init();
         getProfile();
+
     }
 
 
@@ -66,6 +71,9 @@ public class Dashboard extends AppCompatActivity implements Callback<Profile> {
         nameTV = (TextView) findViewById(R.id.name);
         emailAddressTV = (TextView) findViewById(R.id.email);
         typeTV = (TextView) findViewById(R.id.type);
+
+        findViewById(R.id.profile_container).setOnClickListener(this);
+
 
     }
 
@@ -105,4 +113,18 @@ public class Dashboard extends AppCompatActivity implements Callback<Profile> {
     public void onFailure(Call<Profile> call, Throwable t) {
 
     }
+
+
+    @Override
+    public void onClick(View view) {
+
+        if (view.getId() == R.id.profile_container) {
+
+            startActivity(new Intent(this, ProfileActivity.class));
+
+        }
+
+    }
+
+
 }

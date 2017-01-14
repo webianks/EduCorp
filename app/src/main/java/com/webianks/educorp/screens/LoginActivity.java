@@ -1,4 +1,4 @@
-package com.webianks.educorp;
+package com.webianks.educorp.screens;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.webianks.educorp.Constants;
+import com.webianks.educorp.EduCorpApi;
+import com.webianks.educorp.R;
 import com.webianks.educorp.data.Login;
 
 import retrofit2.Call;

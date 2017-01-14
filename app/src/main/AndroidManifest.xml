@@ -10,9 +10,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Dashboard" />
+        <activity android:name=".screens.Dashboard" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".screens.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -22,11 +22,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".screens.LoginActivity"
             android:label="@string/login" />
         <activity
-            android:name=".RegisterActivity"
-            android:label="@string/create_account"></activity>
+            android:name=".screens.RegisterActivity"
+            android:label="@string/create_account" />
+        <activity android:name=".ProfileActivity"
+            android:label="@string/profile"></activity>
     </application>
 
 </manifest>

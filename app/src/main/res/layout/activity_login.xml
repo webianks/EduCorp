@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:elevation="2dp"
-    tools:context="com.webianks.educorp.LoginActivity">
+    tools:context="com.webianks.educorp.screens.LoginActivity">
 
 
     <include layout="@layout/login_container" />

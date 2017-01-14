@@ -27,4 +27,6 @@
     <string name="subjectsOpted">Subject(s) Opted</string>
     <string name="maths">Maths</string>
     <string name="science">Science</string>
+    <string name="bio">Bio</string>
+    <string name="student_tutoring">Student Tutoring</string>
 </resources>

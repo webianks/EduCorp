@@ -4,26 +4,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="com.webianks.educorp.screens.ProfileActivity">
-
+        android:padding="@dimen/activity_vertical_margin">
 
         <include layout="@layout/basic_profile_info" />
 
         <include layout="@layout/address_info" />
 
-        <include layout="@layout/student_info" />
+        <LinearLayout
+            android:id="@+id/parentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="com.webianks.educorp.screens.ProfileActivity">
 
-        <include layout="@layout/subject_opted_info" />
+            <include layout="@layout/student_info" />
 
+            <include layout="@layout/subject_opted_info" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tutorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/tutor_bio" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
